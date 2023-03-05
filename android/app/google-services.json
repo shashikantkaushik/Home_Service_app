@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "58462324312",
+    "project_id": "homzy2-461f9",
+    "storage_bucket": "homzy2-461f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:58462324312:android:825fff9130220d278e2c2d",
+        "android_client_info": {
+          "package_name": "com.shashi.homzy2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "58462324312-0ksc236phfl4n7p4uksn8vmb3078a7b3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shashi.homzy2",
+            "certificate_hash": "4f7c058b30a7aaeba0f67194ee218624416698d1"
+          }
+        },
+        {
+          "client_id": "58462324312-r201bqevegel3ui53pu4lbs9s1etu2dj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAR2SYEvccvLZbQjkhFICouQYUKBZkV1oQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "58462324312-r201bqevegel3ui53pu4lbs9s1etu2dj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "58462324312-u8ki9n5ilsbnopa0sadg50glro7he4m6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.shashi.homzy2"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
