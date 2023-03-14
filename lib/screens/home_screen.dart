@@ -1,31 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:homzy1/auth.dart';
-import 'package:homzy1/screens/WelcomeScreen.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:homzy1/req_model.dart';
 import 'package:homzy1/screens/profile_screen.dart';
 import 'package:provider/provider.dart';
+import 'dart:io';
+import 'package:homzy1/utils.dart';
+
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  File? image;
+  void selectImage() async {
+    image = await pickImage(context);
+    setState(() {});
+  }
   @override
+
   Widget build(BuildContext context) {
     final ap = Provider.of<AuthProvider>(context, listen: false);
-    final t=(ap.userModel.name);
+    final name=(ap.userModel.name);
+    final email=(ap.userModel.email);
+    final bio=(ap.userModel.bio);
+    final phone=(ap.userModel.phoneNumber);
+    final pic=(ap.userModel.profilePic);
+    final uid=(ap.userModel.uid);
+    final date=(ap.userModel.createdAt);
+    // final DatabaseReference databaseReference = FirebaseDatabase.instance.reference().child('messages');
+    final t = (ap.userModel.name);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF189AB4),
         centerTitle: false,
 
-        title:Text("Hello, $t",),
+        title: Text("Hello, $t",),
         actions: [
           GestureDetector(
-            onTap: (){
+            onTap: () {
               print("dlo");
               Navigator.pushReplacement(
                 context,
@@ -34,24 +53,24 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               );
             },
- child: CircleAvatar(
+            child: CircleAvatar(
 
               backgroundImage: NetworkImage(ap.userModel.profilePic),
-             backgroundColor: Color(0xFF189AB4),
+              backgroundColor: Color(0xFF189AB4),
               radius: 50,
             ),
           )
 
         ],
-      ),body:  SafeArea(
+      ), body: SafeArea(
       child: Container(
         child: Center(
           child: ListView(
             children: [
               SizedBox(
-                height:  200,
+                height: 200,
                 width: double.infinity,
-                child:  Carousel(
+                child: Carousel(
                   dotColor: Colors.lightBlue,
                   dotBgColor: Colors.transparent,
                   dotSize: 9.0,
@@ -60,32 +79,40 @@ class _HomeScreenState extends State<HomeScreen> {
                   images: [
                     InkWell(
                       onTap: () {
-                        print("Click on the first image ");},
-                      child: Image.asset('assets/IMG_20230304_174306.jpg' , fit: BoxFit.cover),
+                        print("Click on the first image ");
+                      },
+                      child: Image.asset(
+                          'assets/IMG_20230304_174306.jpg', fit: BoxFit.cover),
                     ),
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         print("Click on the second image");
                       },
-                      child: Image.asset('assets/IMG_20230304_174324.jpg' , fit: BoxFit.cover),
+                      child: Image.asset(
+                          'assets/IMG_20230304_174324.jpg', fit: BoxFit.cover),
                     ),
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         print("Click on the third image");
                       },
-                      child: Image.asset('assets/WhatsApp Image 2023-03-04 at 5.00.11 PM.jpeg' , fit: BoxFit.cover),
+                      child: Image.asset(
+                          'assets/WhatsApp Image 2023-03-04 at 5.00.11 PM.jpeg',
+                          fit: BoxFit.cover),
                     ),
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         print("Click on the fourth image");
                       },
-                      child: Image.asset('assets/IMG_20230304_174306.jpg' , fit: BoxFit.cover),
+                      child: Image.asset(
+                          'assets/IMG_20230304_174306.jpg', fit: BoxFit.cover),
                     ),
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         print("Click on the fiveth image");
                       },
-                      child: Image.asset('assets/WhatsApp Image 2023-03-04 at 5.00.11 PM.jpeg' , fit: BoxFit.cover),
+                      child: Image.asset(
+                          'assets/WhatsApp Image 2023-03-04 at 5.00.11 PM.jpeg',
+                          fit: BoxFit.cover),
                     ),
 
                   ],
@@ -101,44 +128,56 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Flexible(
                     flex: 1,
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      margin: EdgeInsets.only(left: 8),
-                      child: Column(
-                        children: [
-                          AspectRatio(
-                              aspectRatio: 1.0,
-                              child: Image.asset('assets/small_service/2.jpeg')),
-                          SizedBox(height: 10),
-                          Padding(
-                            padding: EdgeInsets.only(bottom: 10),
-                            child: Text('Pet Grooming'),
-                          ),
-                        ],
+                    child: GestureDetector(
+                      onTap: (){
+                       selectImage();
+                      },
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        margin: EdgeInsets.only(left: 8),
+                        child: Column(
+                          children: [
+                            AspectRatio(
+                                aspectRatio: 1.0,
+                                child: Image.asset(
+                                    'assets/small_service/2.jpeg')),
+                            SizedBox(height: 10),
+                            Padding(
+                              padding: EdgeInsets.only(bottom: 10),
+                              child: Text('Pet Grooming'),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                   Flexible(
                     flex: 1,
-                    child: Card
-                      (
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      margin: EdgeInsets.only(left: 8),
-                      child: Column(
-                        children: [
-                          AspectRatio(
-                              aspectRatio: 1.0,
-                              child: Image.asset('assets/small_service/3.jpeg')),
-                          SizedBox(height: 10),
-                          Padding(
-                            padding: EdgeInsets.only(bottom: 10),
-                            child: Text('Medicines'),
-                          ),
-                        ],
+                    child: GestureDetector(
+                      onTap: (){
+                        storeData();
+                      },
+                      child: Card
+                        (
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        margin: EdgeInsets.only(left: 8),
+                        child: Column(
+                          children: [
+                            AspectRatio(
+                                aspectRatio: 1.0,
+                                child: Image.asset(
+                                    'assets/small_service/3.jpeg')),
+                            SizedBox(height: 10),
+                            Padding(
+                              padding: EdgeInsets.only(bottom: 10),
+                              child: Text('Medicines'),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -153,7 +192,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           AspectRatio(
                               aspectRatio: 1.0,
-                              child: Image.asset('assets/small_service/4.jpeg')),
+                              child: Image.asset(
+                                  'assets/small_service/4.jpeg')),
                           SizedBox(height: 10),
                           Padding(
                             padding: EdgeInsets.only(bottom: 10),
@@ -183,7 +223,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           AspectRatio(
                               aspectRatio: 1.0,
-                              child: Image.asset('assets/small_service/1.jpeg')),
+                              child: Image.asset(
+                                  'assets/small_service/1.jpeg')),
                           SizedBox(height: 10),
                           Padding(
                             padding: EdgeInsets.only(bottom: 10),
@@ -209,7 +250,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Flexible(
                     flex: 1,
                     child: Card(
-                      margin: EdgeInsets.only(left: 20 ,right: 20),
+                      margin: EdgeInsets.only(left: 20, right: 20),
                       child: Column(
                         children: [
                           SizedBox(height: 10),
@@ -234,7 +275,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-
 
 
               SizedBox(
@@ -285,4 +325,42 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
     );
   }
+
+    void storeData() async {
+      final ap = Provider.of<AuthProvider>(context, listen: false);
+      ReqModel reqModel = ReqModel(
+        name: ap.userModel.name,
+        bio: ap.userModel.bio,
+        reqPic: "12",
+        createdAt: "12",
+        phoneNumber: ap.userModel.phoneNumber,
+        uid: "12",
+
+      );
+      if (image != null) {
+        ap.saveReqToFirebase(
+          context: context,
+          reqModel: reqModel,
+          reqPic: image!,
+          onSuccess: () {
+
+
+print(reqModel.name);
+print("asdf");
+                        (value) =>
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Profile(),
+                            ),
+                                (route) => false);
+
+
+          },
+        );
+      } else {
+        showSnackBar(context, "Please upload your profile photo");
+      }
+    }
+
 }

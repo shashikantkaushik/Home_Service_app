@@ -2,11 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:homzy1/user_model.dart';
+import 'package:provider/provider.dart';
 import 'package:homzy1/auth.dart';
 import 'package:homzy1/screens/home_screen.dart';
 import 'package:homzy1/utils.dart';
 import 'package:homzy1/widget/button.dart';
-import 'package:provider/provider.dart';
+
 
 class UserInfromationScreen extends StatefulWidget {
   const UserInfromationScreen({super.key});

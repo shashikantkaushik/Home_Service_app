@@ -29,11 +29,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    phoneController.selection = TextSelection.fromPosition(
-      TextPosition(
-        offset: phoneController.text.length,
-      ),
-    );
+
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -81,7 +77,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   onChanged: (value) {
                     setState(() {
-                      phoneController.text = value;
+
                     });
                   },
                   decoration: InputDecoration(
