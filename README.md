@@ -59,9 +59,8 @@ Check out the [contributing](https://github.com/shashikantkaushik/shashikantkaus
 <br>
 
 ## :closed_book: License
-
-Released in 2020,
-This project is under the MIT license.
+Not Release Yet
+All rights are reserved
 
 <br>
 
