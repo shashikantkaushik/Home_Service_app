@@ -12,7 +12,7 @@ My goal is give you the knowledge to create a Flutter app entirely from scratch,
 <br>
 
 ## 🚀 Preview
-it will be avalible soon
+It will be avalible soon in Preview Mode
 
 <br>
 
@@ -60,7 +60,7 @@ Check out the [contributing](https://github.com/shashikantkaushik/shashikantkaus
 
 ## :closed_book: License
 Not Release Yet
-All rights are reserved
+All Rights are Reserved
 
 <br>
 
