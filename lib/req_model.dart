@@ -1,3 +1,4 @@
+//this is req model updated will be avalible soon
 class ReqModel {
   String name;
   String bio;
