@@ -6,7 +6,7 @@
 <br>
 
 ## 🥅 My Goal
-
+ 
 My goal is give you the knowledge to create a Flutter app entirely from scratch, how to go further and learn more about how to design user interfaces for Flutter apps.
 
 <br>  
